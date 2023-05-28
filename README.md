@@ -1,2 +1,25 @@
 # Proiect-PAS
 Proiect PAS
+-este un cooking simulator, în care ideea de bază este că eşti un bucătar care pleacă din oraşul său natal şi călătoreşte în jurul lumii, pentru a găti. De aceea, există mai multe mape de joc;
+-jucătorul îşi poate personaliza bucătarul (culoarea sa) printr-un panou de schimbare a culorii;
+-scopul final al jocului este completarea celor zece misiuni. Completarea lor duce la obţinerea trofeului de joc. Primele cinci oferă coduri de trişare, care îi oferă jucătorului diverse avantaje în cadrul meciului, putând fi folosite în cadrul consolei existente în joc;
+-există 6 reţete pe care clienţii le pot cere (pe care jucătorul le poate prepara): salată, burger, cheeseburger, vegan burger, cabbage burger, megaburger;
+-există o listă de aşteptare a comenzilor clienţilor în care se pot afla cel mult 4 comenzi;
+-scopul jucătorului este de a prepara ingredientele şi de a livra la timp comenzile, lucru care duce la creşterea timpului total de joc, în funcţie de dificultatea sa;
+-dacă timpul de livrare al unei comenzi expiră sau dacă este livrată o comandă care nu este în lista de aşteptări a comenzilor clienţilor, timpul de joc va scădea;
+-la finalul unui meci, dacă a obţinut un scor suficient de bun, jucătorul îşi poate trece numele în tabelul cu cele mai bune zece scoruri;
+-detalii tehnice: Cele trei concepte de bază (jucător, obiect şi dulap de bucătărie) interacţionează în următorul mod: jucătorul va şti mereu dacă are sau nu un obiect de bucătărie în mână, la fel ca dulapul de bucătărie, în timp ce obiectul de bucătărie va şti în orice moment unde se află: fie în mâna jucătorului, fie pe un anumit dulap de bucătărie. În cazul jucătorului, acest lucru a fost posibil prin implementarea interfeţei IKitchenObjectParent, în care se afla a setterul, a getterul şi funcţia HasKitchenObject, pentru respectivul obiect de bucătărie, în timp ce pentru dulapurile de bucătărie au fost necesare atât implementarea acestei interfeţe, cât şi crearea clasei de bază BaseCounter. Pentru obiectele de bucătărie, a fost creată şi ataşată fiecăruia în parte o clasă specială, KitchenObject, în care unul dintre câmpuri era de tip IKitchenObjectParent, pentru a şti care este părintele său.
+- multe animaţii (ale caracterului principal, ale  caracterelor din jur etc) si particle systems (când arunci ceva la gunoi, când se prăjeşte carnea, când foloseşti un cod de trişare, etc);
+- mişcarea jucătorului şi tratarea coliziunilor cu ajutorul raycastingului, respectiv Capsulecast;
+- highscores system;
+- quests system;
+- change color system;
+- choose map system;
+- 5 in-game cheat codes with cheating console;
+- shaderuri personalizate: săgeata alba corespunzatoare delivery counter, sau apa din mapa de plajă;
+- diverse efecte subtile de post procesare: Tonemapping, Color Adjustments, Bloom, Vignette, etc;
+- AI: foarte multe state machines, de pildă stove counter-ul când are un obiect de bucătărie ce poate fi prăjit pe el (nefacut-facut-ars) sau GameManagerul (WaitingToStart-CountdownToStart-GameIsPlaying-GameOver)
+- o mulţime de obiecte de bucătărie, fiecare cu utilitatea sa: roşie, caşcaval, varză, farurie, carne, pâine (s-a pornit de la clasa KitchenObject şi s-a adăugat după caz funcţionalitatea specifică fiecăruia)
+- o mulţime de dulapuri de bucătărie, fiecare având funcţionalitatea sa: dulapul de bucătărie gol, dulapul de bucătărie container, aragazul, coşul de gunoi, dulapul de bucătărie de tăiere, dulapul de bucătărie pentru farfurii, dulapul de bucătărie de livrare (fiecare dintre acestea moşteneşte clasa de bază BaseCounter);
+- jocul poate fi jucat atât cu tastatura, cât şi cu controler-ul;
+- jucătorul poate schimba controalele de joc.
